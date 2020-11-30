@@ -1,6 +1,6 @@
 # DEPRECATED
 
-See below for more project information, but as of Nov 2020, Hermeez/TextTop/Android Messages/whatevery name du jour you'd like is shutdown. The backend has been dismantled, and this code is uploaded here for posterity/safekeeping. Project directory:
+See below for more project information, but as of Nov 2020, Hermeez/TextTop/Android Messages/whatever name du jour you'd like is shutdown. The backend has been dismantled, and this code is uploaded here for posterity/safekeeping. Project directory:
 
  - `desktop-v1` -- This contains the source code for an electron app. This version of the desktop client had basic support for multiple users, but the framework used to build the client application became unwieldly and difficult to develop, leading to:
  - `desktop-v2` -- This was a rewrite of the client application -- this time without electron -- just a React app available via the browser. In developing it, I cut some corners and skipped the necessary features that would support multiple users. This version was in use for a while, although it supported only myself.
