@@ -1,0 +1,73 @@
+apply plugin: 'com.android.application'
+
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-android-extensions'
+
+apply plugin: 'kotlinx-serialization'
+
+android {
+    compileSdkVersion 27
+    defaultConfig {
+        applicationId "nicktylah.hermes"
+        minSdkVersion 24
+        targetSdkVersion 27
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        def hermesHostValue = "api.hermeez.co"
+        // Creates a placeholder property to use in the manifest.
+        manifestPlaceholders =
+                [hermesHost: hermesHostValue]
+        // Adds a new field for the authority to the BuildConfig class.
+        buildConfigField("String",
+                "HERMES_HOST",
+                "\"${hermesHostValue}\"")
+    }
+    buildTypes {
+        staging {
+            applicationIdSuffix ".stg"
+            debuggable true
+            minifyEnabled true
+            buildConfigField("String", "HERMES_HOST", "stg-api.hermes.co")
+        }
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            buildConfigField("String", "HERMES_HOST", "api.hermes.co")
+            proguardFiles getDefaultProguardFile('proguard-android.txt'),
+                    'proguard-rules.pro'
+        }
+    }
+    repositories {
+        jcenter()
+        maven { url "https://kotlin.bintray.com/kotlinx" }
+    }
+}
+
+dependencies {
+    implementation 'com.android.support:design:27.1.1'
+    api 'me.pushy:sdk:1.0.43'
+    api "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    api "org.jetbrains.kotlinx:kotlinx-serialization-runtime:$serialization_version"
+    api 'org.jetbrains.anko:anko:0.10.2'
+    api 'com.github.kittinunf.fuel:fuel-android:1.11.0'
+    api 'com.klinkerapps:android-smsmms:3.5.0'
+    api 'com.firebaseui:firebase-ui-auth:3.1.0'
+    api 'com.google.firebase:firebase-auth:15.0.0'
+    api 'com.google.firebase:firebase-core:15.0.2'
+    api 'com.google.firebase:firebase-crash:15.0.2'
+    api 'com.google.firebase:firebase-messaging:15.0.2'
+    api 'com.google.firebase:firebase-storage:15.0.2'
+    api 'com.google.android.gms:play-services-auth:15.0.1'
+    api 'com.googlecode.libphonenumber:libphonenumber:5.5'
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation 'com.android.support:appcompat-v7:27.1.1'
+    implementation 'com.android.support:support-v4:27.1.1'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+}
+
+apply plugin: 'com.google.gms.google-services'

@@ -1,0 +1,319 @@
+.messages-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: 100%;
+  width: 100%;
+
+  ::-webkit-scrollbar {
+    width: 5px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #666;
+  }
+
+  .header {
+    border-bottom: 1px solid #D8D8D8;
+    display: flex;
+    flex-direction: column;
+    min-height: 35px;
+
+    .header-top {
+      padding: 5px 0;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+
+      .conversation-name-container {
+        padding: 6px 0 1px 0;
+        font-size: 15px;
+        margin-left: 15px;
+
+        input {
+          outline: none;
+          margin: 4px 0 8px -7px;
+        }
+      }
+
+      .details {
+        margin-right: 15px;
+        font-size: 11px;
+        color: #2E8BF3;
+        cursor: pointer;
+      }
+    }
+
+    .name-container {
+      padding: 0 6px;
+    }
+
+    .recipient {
+      color: white;
+      display: inline-block;
+      margin: 0 2px 5px 2px;
+      background: lightblue;
+      border-radius: 2px;
+      padding: 1.5px 14px 1.5px 3px;
+      position: relative;
+      font-size: 13px;
+
+      .recipient-dropdown {
+        position: absolute;
+        top: 3px;
+        right: 3px;
+        cursor: pointer;
+        display: inline-block;
+        padding: 3px;
+      }
+    }
+
+    .recipient-options {
+      display: block;
+      position: absolute;
+      color: black;
+      background: #F0F0F0;
+      top: 3px;
+      border-radius: 3px;
+      width: 120px;
+      cursor: initial;
+      user-select: initial;
+      z-index: 1;
+      border: 0.5px solid lightgray;
+      box-shadow: -3px 3px 20px -7px #212121;;
+
+      .recipient-option-header {
+        color: gray;
+        border-bottom: 2px solid #ADADAD;
+        width: 75%;
+        padding: 5px 15px;
+      }
+
+      .recipient-option-color {
+        padding: 3px 15px;
+        margin: 3px 0 4px;
+        white-space: nowrap;
+
+        &:hover {
+          background: rgba(42, 131, 241, 1);
+          color: white;
+        }
+
+        .color-picker {
+          display: block;
+          width: 168px;
+          height: 132px;
+          position: absolute;
+          background: #F0F0F0;
+          top: 35px;
+          left: 100px;
+          border: 0.5px solid lightgray;
+          box-shadow: -3px 3px 20px -7px #212121;
+          white-space: normal;
+
+          .color {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            margin: 2px;
+
+            &.hover {
+              filter: brightness(90%);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .content {
+    flex: 1 1 auto;
+    min-height: 0;
+    overflow-y: scroll;
+    height: 100%;
+  }
+
+  .message-container {
+    clear: both;
+    float: left;
+    position: relative;
+    padding: 5px 8px;
+    max-width: 60%;
+
+    &.self {
+      float: right;
+
+      .timestamp {
+        text-align: right;
+        margin-right: 8px;
+      }
+    }
+
+    &.streak {
+      margin-bottom: -18px;
+
+      .message-sender {
+        display: none;
+      }
+    }
+
+    .timestamp {
+      clear: both;
+      color: #969696;
+      font-size: 10px;
+      display: block;
+      text-align: left;
+      margin-left: 8px;
+    }
+
+    &.mms {
+      .timestamp {
+        margin-left: 40px;
+      }
+    }
+  }
+
+  .message-sender {
+    display: inline;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+
+    .recipient-avatar {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+    }
+
+    .name,
+    .default {
+      display: table-cell;
+      vertical-align: middle;
+      color: white;
+      background: #B8B9BA;
+      text-align: center;
+      font-size: 13px;
+      font-weight: 300;
+    }
+  }
+
+  .message {
+    color: white;
+    margin: 5px 0 5px 5px;
+    padding: 5px 8px;
+    position: relative;
+    border-radius: 8px;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-word;
+    hyphens: auto;
+
+    .message-image {
+      border-radius: 10px;
+      padding: 5px 0;
+      max-height: 200px;
+      max-width: 100%;
+    }
+
+    &.mms {
+      margin-left: 40px;
+    }
+
+    //&::after {
+    //  right: 100%;
+    //  top: 50%;
+    //  content: " ";
+    //  height: 0;
+    //  width: 0;
+    //  position: absolute;
+    //  pointer-events: none;
+    //  border: 3px solid transparent;
+    //  border-right-color: #E5E5EA;
+    //  margin-top: -3px;
+    //}
+
+    &.self {
+      background: #ECEFF1;
+      color: black;
+      float: right;
+      margin: 5px 5px 5px 0;
+
+      &.in-flight {
+        animation: in-flight 1s linear infinite;
+        -webkit-animation: in-flight 1s linear infinite;
+      }
+
+      //&::after {
+      //  left: 100%;
+      //  border-left-color: #2D91F4;
+      //  border-right-color: transparent;
+      //
+      //  &.in-flight {
+      //    animation: in-flight 5s linear infinite;
+      //    -webkit-animation: in-flight 5s linear infinite;
+      //  }
+      //}
+    }
+  }
+
+  &.triangle {
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 50px 0 50px 86.6px;
+    border-color: transparent transparent transparent #E5E5EA;
+
+    &.self {
+      border-color: transparent transparent transparent #2D91F4;
+    }
+  }
+}
+
+.input-container {
+  background: #F6F6F6;
+  border-top: 1px solid #D8D8D8;
+  height: 35px;
+  width: 100%;
+
+  .input {
+    width: 95%;
+    height: 18px;
+    padding: 3px 5px 0 5px;;
+    resize: none;
+    margin: 4px 0 0 10px;
+    outline: none;
+  }
+}
+
+@keyframes in-flight {
+  0%, 100% {
+    background: #D3D5D6;
+  }
+  50% {
+    background: #ECEFF1;
+  }
+}
+
+@-webkit-keyframes in-flight {
+  0%, 100% {
+    background: #D3D5D6;
+  }
+  50% {
+    background: #ECEFF1;
+  }
+}
+
+.loading {
+  position: absolute;
+  top: 45%;
+  left: 60%;
+}
+
+.search-message {
+  position: absolute;
+  top: 46%;
+  left: 56%;
+}

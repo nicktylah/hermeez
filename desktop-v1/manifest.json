@@ -1,0 +1,38 @@
+{
+  "name": "Hermes",
+  "description": "UI for sending and receiving SMS/MMS messages with an Android phone",
+  "icons": {
+    "48": "src/static/images/hermesv2_48.png",
+    "128": "src/static/images/hermesv2_128.png"
+  },
+  "version": "1",
+  "manifest_version": 2,
+  "permissions": [
+    "storage",
+    "identity",
+    "https://android-messages-6c275.firebaseio.com/.lp",
+    "<all_urls>",
+    "notifications"
+  ],
+  "sandbox": {
+    "pages": [
+      "src/index.html",
+      "src/static/fonts/**/*",
+      "src/static/sounds/**/*"
+    ]
+  },
+  "app": {
+    "background": {
+      "scripts": [
+        "background.js"
+      ]
+    }
+  },
+  "content_security_policy": "default-src 'self' allow-scripts https://android-messages-6c275.firebaseio.com/ https://android-messages-6c275.firebaseio.com/.lp; sandbox 'allow-same-origin' 'allow-scripts'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://android-messages-6c275.firebaseio.com/ https://android-messages-6c275.firebaseio.com/.lp; object-src 'self'",
+  "gcm_sender_id": "103953800507",
+  "web_accessible_resources": [
+    "src/static/fonts/roboto.css",
+    "src/static/sounds/Whit.wav",
+    "src/static/fonts/woff/*.woff2"
+  ]
+}

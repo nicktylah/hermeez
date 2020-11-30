@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Hermes</string>
+    <string name="sync_all_messages">Sync Messages</string>
+    <string name="start_message_forwarding">Start Message Forwarding</string>
+    <string name="sign_out">Sign Out</string>
+    <string name="sign_in">Sign In</string>
+    <string name="update_password">Update Password</string>
+    <string name="forwarding_notification_title">Forwarding incoming messages</string>
+    <string name="forwarding_notification_message">Tap to disable Hermes message forwarding</string>
+    <string name="sync_notification_title">Syncing messages</string>
+    <string name="sync_notification_message">Tap to stop message sync</string>
+    <string name="default_hermes_pw">8IH@7eGK#^X^pfLbpDi7zxGtMP!5mFqMNhx8xX2DURrWqkucz*Zs1^ebZ^wDvLBN53E1uE698rJf7dF8tghjCnL$$@Dc%sFGcII</string>
+    <string name="hermes_pw">hermes_pw</string>
+    <string name="updatePasswordBlurb">A strong password protects your data. Set a good one! You may also use this password to log in with your current email.</string>
+</resources>

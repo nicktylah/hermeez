@@ -1,0 +1,41 @@
+[ignore]
+.*/_tests/.*
+.*/node_modules/graphql/.*
+.*/node_modules/config-chain/.*
+.*/node_modules/esformatter/.*
+.*/node_modules/esformatter-jsx/.*
+.*/react/node_modules/.*
+.*/react-static-container/node_modules/.*
+
+[include]
+../node_modules/base62
+../node_modules/fbjs/lib
+../node_modules/invariant
+../node_modules/react
+../node_modules/react-static-container/lib
+
+[libs]
+./node_modules/fbjs/flow/lib
+
+[options]
+module.name_mapper='^_actions\/\(.*\)$' -> '<PROJECT_ROOT>/src/actions/\1'
+module.name_mapper='^_components\/\(.*\)$' -> '<PROJECT_ROOT>/src/components/\1'
+module.name_mapper='^_reducers\/\(.*\)$' -> '<PROJECT_ROOT>/src/reducers/\1'
+
+module.name_mapper.extension='css' -> '<PROJECT_ROOT>/flow/CSSModule.js.flow'
+module.name_mapper.extension='scss' -> '<PROJECT_ROOT>/flow/CSSModule.js.flow'
+module.name_mapper.extension='png' -> '<PROJECT_ROOT>/flow/WebpackAsset.js.flow'
+module.name_mapper.extension='jpg' -> '<PROJECT_ROOT>/flow/WebpackAsset.js.flow'
+
+esproposal.class_static_fields=enable
+esproposal.class_instance_fields=enable
+
+munge_underscores=true
+
+suppress_type=$FlowIssue
+suppress_type=$FlowFixMe
+suppress_type=$FixMe
+
+suppress_comment=\\(.\\|\n\\)*\\$FlowFixMe\\($\\|[^(]\\|(\\(>=0\\.\\(2[0-4]\\|1[0-9]\\|[0-9]\\).[0-9]\\)? *\\(site=[a-z,_]*relay[a-z,_]*\\)?)\\)
+suppress_comment=\\(.\\|\n\\)*\\$FlowIssue\\((\\(>=0\\.\\(2[0-4]\\|1[0-9]\\|[0-9]\\).[0-9]\\)? *\\(site=[a-z,_]*relay[a-z,_]*\\)?)\\)? #[0-9]+
+suppress_comment=\\(.\\|\n\\)*\\$FlowFixedInNextDeploy

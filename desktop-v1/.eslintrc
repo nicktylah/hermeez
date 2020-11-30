@@ -1,0 +1,5 @@
+{
+  "extends": ["semistandard", "standard-react"],
+  "root": true,
+  "parser": "babel-eslint"
+}

@@ -1,0 +1,44 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  background: #F6F6F6;
+  font-family: "Roboto", sans-serif;
+  //font-family: "Helvetica Neue", "Lucida Grande", sans-serif;
+  font-size: 90%;
+}
+
+a {
+  text-decoration: none;
+}
+
+hr {
+  display: block;
+  border: 0;
+  //border-top: 1px solid $nurseGray;
+  height: 1px;
+  margin: 20px 0;
+  padding: 0;
+}
+
+.wrap {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-bottom: 100px;
+}
+
+#app {
+  height: 100vh;
+}
+
+.app-container {
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-content: flex-start;
+  align-items: flex-start;
+}

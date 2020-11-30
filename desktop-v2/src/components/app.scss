@@ -1,0 +1,241 @@
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  //padding: 0;
+  overflow: hidden;
+  background: #F6F6F6;
+  font-family: "Roboto", sans-serif;
+  //font-family: "Helvetica Neue", "Lucida Grande", sans-serif;
+  font-size: 90%;
+}
+
+a {
+  text-decoration: none;
+}
+
+hr {
+  display: block;
+  border: 0;
+  //border-top: 1px solid $nurseGray;
+  height: 1px;
+  margin: 20px 0;
+  padding: 0;
+}
+
+.notificationsCont {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+
+  .notification {
+    box-shadow: rgba(10, 10, 11, 0.2) 0 0 1px 1px;
+    padding: 1rem;
+    position: fixed;
+    top: 0;
+    width: 100%;
+  }
+}
+
+@-webkit-keyframes slideDown {
+  0%, 100% { -webkit-transform: translateY(-50px); }
+  10%, 90% { -webkit-transform: translateY(0px); }
+}
+@-moz-keyframes slideDown {
+  0%, 100% { -moz-transform: translateY(-50px); }
+  10%, 90% { -moz-transform: translateY(0px); }
+}
+
+.cssanimations.csstransforms .notificationsCont, .notification {
+  -webkit-transform: translateY(-50px);
+  -webkit-animation: slideDown 2.5s 1.0s 1 ease forwards;
+  -moz-transform:    translateY(-50px);
+  -moz-animation:    slideDown 2.5s 1.0s 1 ease forwards;
+}
+
+.wrap {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-bottom: 100px;
+}
+
+.app {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.appCont {
+  height: 100%;
+  justify-content: flex-start;
+  align-content: flex-start;
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.raisedButton {
+  background: rgba(158,158,158,.2);
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.2), 0 1px 5px 0 rgba(0,0,0,.12);
+}
+
+.googleSignIn {
+  background-color: #FFFFFF;
+  border-radius: 2px;
+  border: none;
+  color: #000;
+  cursor: pointer;
+  direction: ltr;
+  display: flex;
+  font-size: 14px;
+  font-weight: 500;
+  height: auto;
+  letter-spacing: 0;
+  line-height: normal;
+  margin: 0;
+  max-width: 220px;
+  min-height: 40px;
+  min-width: 64px;
+  outline: 0;
+  overflow: hidden;
+  padding: 8px 16px;
+  position: relative;
+  text-align: left;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: box-shadow .2s cubic-bezier(.4,0,1,1),background-color .2s cubic-bezier(.4,0,.2,1),color .2s cubic-bezier(.4,0,.2,1);
+  vertical-align: middle;
+  width: 100%;
+  will-change: box-shadow;
+
+  .iconCont {
+    display: table-cell;
+    vertical-align: middle;
+
+    .icon {
+      border: none;
+      display: inline-block;
+      height: 18px;
+      vertical-align: middle;
+      width: 18px;
+    }
+  }
+  
+  .textLong, .textShort {
+    color: #757575;
+    font-size: 14px;
+    padding-left: 16px;
+    text-transform: none;
+    vertical-align: middle;
+  }
+  
+  .textShort {
+    display: none;
+  }
+}
+
+.signOut {
+  background-color: #DADADA;
+  cursor: pointer;
+  display: inline-block;
+  float: right;
+  padding: 5px;
+  margin: auto;
+}
+
+.topBarCont {
+  flex: 1 0 auto;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  max-height: 10%;
+  width: 100%;
+
+  .searchCont {
+    flex: 0 0 30%;
+    border-bottom: 1px solid #D8D8D8;
+    padding: 10px 0 0 14px;
+    min-height: 25px;
+  }
+
+  .detailsCont {
+    flex: 1 0 auto;
+    border-bottom: 1px solid #D8D8D8;
+    min-height: 35px;
+  }
+}
+
+.bottomBarCont {
+  width: 100%;
+  flex: 1 0 auto;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  height: 90%;
+};
+
+.leftColumnCont {
+
+  ::-webkit-scrollbar {
+    display: none;
+  }
+
+  display: flex;
+  flex-direction: column;
+  flex: 1 0 auto;
+  margin: 0;
+  height: 100%;
+  padding: 0;
+  overflow-y: scroll;
+  border-right: 1px solid #D8D8D8;
+  width: 30%
+}
+
+.rightColumnCont {
+  flex: 1 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 70%;
+
+  ::-webkit-scrollbar {
+    width: 5px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #666;
+  }
+
+  .inputCont {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #F6F6F6;
+    border-top: 1px solid #D8D8D8;
+    max-height: 30%;
+    width: 100%;
+
+    .input {
+      width: 95%;
+      height: 35%;
+      background-color: #ffffff;
+      border: 1px solid #DFDFDF;
+      padding: 3px 5px 0 5px;;
+      margin: 15px 0;
+      min-height: 18px;
+      max-height: 90px;
+      outline: none;
+      resize: none;
+
+      p,
+      span {
+        // fix for contenteditable inserting markup :/
+        font-size: 12.96px;
+      }
+    }
+  }
+}

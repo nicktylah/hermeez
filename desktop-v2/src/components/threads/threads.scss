@@ -1,0 +1,111 @@
+.threadsCont::-webkit-scrollbar {
+  display: none;
+}
+
+.threadsCont {
+  flex: 1;
+  margin: 0;
+  height: 100%;
+  padding: 0;
+  position: relative;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.threadCont {
+  border-top: 1px solid #DFDFDF;
+  height: 64px;
+
+  &.selected {
+    background: rgba(42, 131, 241, 1);
+    background: -moz-linear-gradient(left, rgba(42, 131, 241, 1) 0%, rgba(50, 138, 246, 1) 100%);
+    background: -webkit-gradient(left top, right top, color-stop(0%, rgba(42, 131, 241, 1)), color-stop(100%, rgba(50, 138, 246, 1)));
+    background: -webkit-linear-gradient(left, rgba(42, 131, 241, 1) 0%, rgba(50, 138, 246, 1) 100%);
+    background: -o-linear-gradient(left, rgba(42, 131, 241, 1) 0%, rgba(50, 138, 246, 1) 100%);
+    background: -ms-linear-gradient(left, rgba(42, 131, 241, 1) 0%, rgba(50, 138, 246, 1) 100%);
+    background: linear-gradient(to right, rgba(42, 131, 241, 1) 0%, rgba(50, 138, 246, 1) 100%);
+
+    .thread {
+      border-top: 0;
+      color: white;
+    }
+  }
+
+  .thread {
+    height: 100%;
+    overflow: hidden;
+    display: inline-block;
+    margin-left: 20px;
+    width: 93.8%;
+    padding: 0;
+
+    .photosCont {
+      position: absolute;
+      padding-top: 7px;
+      display: table;
+
+      .layered {
+        width: 40px;
+        height: 40px;
+        border: .5px solid #dadada;
+
+        &:last-child {
+          left: 10px;
+          top: 16px;
+          position: absolute;
+          line-height: 40px;
+        }
+      }
+
+      .contactAvatar.name,
+      .contactAvatar.default {
+        display: table-cell;
+        vertical-align: middle;
+        color: white;
+        background: #B8B9BA;
+        text-align: center;
+        font-size: 17px;
+        font-weight: 300;
+      }
+    }
+
+    .contactCont {
+      display: inline-block;
+      margin-left: 60px;
+      margin-top: 6px;
+      font-weight: bold;
+      max-width: 48%;
+      overflow: hidden;
+      height: 1.3em;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+
+    .messageCont {
+      margin-left: 60px;
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      max-width: 69%;
+    }
+
+    .dateCont {
+      float: right;
+      margin-right: 15px;
+      margin-top: 6px;
+    }
+
+    .attachment,
+    .contactAvatar {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+
+    }
+  }
+}
+
+.threadCont:first-child {
+  border-top: 0;
+}
